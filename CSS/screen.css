@@ -10,30 +10,30 @@
   --pi: 3.14159265359;
 
   /* Global colors */
-  --global-color-back: #221F2E;
-  --global-color-front: #2E2B3F;
-  --global-color-front-dark: #21221d;
-  --global-color-accent: #6c735d;
-  --global-color-available: #96cb61;
-  --global-color-unavailable: #d26200;
+  --global-color-back: #262626;
+  --global-color-front: #FBFFFF;
+  --global-color-media: #FBFFFF33;
+  --global-profile-pic-light: url("../img/profile-pic-light.png");
+  --global-profile-pic-dark: url("../img/profile-pic-dark.png");
 
   /* global page settings */
-  --global-html-color: var(--global-color-front-dark);
-  --global-html-backgroundColor: var(--global-color-back);
-  --global-selection-backgroundColor: var(--global-color-front);
-  --global-html-loader-back: var(--global-color-front);
-  --global-html-loader-front: var(--global-color-accent);
-  --global-borderWith: 0.0625em;
-  --global-borderRadius: 0.3125em;
+  --global-html-color: var(--global-color-back);
+  --global-html-backgroundColor: var(--global-color-front);
+  --global-selection-backgroundColor: var(--global-color-back);
+  --global-selection-color: var(--global-color-front);
+  --global-borderRadius-big: 20px;
+  --global-borderRadius-small: 5px;
+  --global-profile-pic: var(--global-profile-pic-light);
+  --global-profile-pic-borderRadius: var(--global-borderRadius-big) 0px 0px var(--global-borderRadius-big);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-  --global-html-color: var(--global-color-back);
-  --global-html-backgroundColor: var(--global-color-front-dark);
-  --global-color-accent: #aab19d;
-  --global-html-loader-back: var(--global-color-front-dark);
-  --global-html-loader-front: var(--global-color-front);
+  --global-html-color: var(--global-color-front);
+  --global-html-backgroundColor: var(--global-color-back);
+  --global-selection-backgroundColor: var(--global-color-front);
+  --global-selection-color: var(--global-color-back);
+  --global-profile-pic: var(--global-profile-pic-dark);
   }
 }
 
@@ -49,6 +49,7 @@
 
 html {
   font-family: 'Poppins', sans-serif;
+  color: var(--global-html-color);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -63,13 +64,10 @@ html {
 }
 
 body {
-  background: var(--global-color-back);
+  background: var(--global-html-backgroundColor);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /*
@@ -81,7 +79,7 @@ body {
 
 ::selection {
   background: var(--global-selection-backgroundColor);
-  color: var(--global-color-back);
+  color: var(--global-selection-color);
   text-shadow: none;
 }
 
@@ -137,7 +135,7 @@ h6 {
   margin: 0 0 24px;
 }
 
-p,
+
 ol,
 ul,
 dl,
@@ -480,10 +478,95 @@ a:focus {
   \*------------------------------------*/
 
 /*
-    Component: 
+    Component: Banner
     ---
-    Description
+    Banner
 */
+.c-banner{
+  background-image: url("../img/banner-pic.jpeg");
+  height: 30%;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: static;
+}
+
+/*
+    Component: Card
+    ---
+    Profile card
+*/
+.c-card-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 20%;
+}
+
+.c-card{
+  background-color: var(--global-color-front);
+  height: 192px;
+  width: 90%;
+  max-width: 344px;
+  border-radius: var(--global-borderRadius-big);
+  display: flex;
+}
+
+.c-profile-pic{
+width: 50%;
+background-image: var(--global-profile-pic);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+border-radius: var(--global-profile-pic-borderRadius);
+}
+
+.c-title-container{
+  width: 50%;
+  color: var(--global-html-backgroundColor);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 16px;
+}
+
+.c-name-container{
+  font-size: 24px;
+  font-weight: 600;
+}
+.c-name{
+  margin: 0;
+}
+
+.c-function-container{
+  padding-top: 8px;
+  font-size: 12px;
+}
+
+.c-function{
+  margin: 0;
+}
+
+/*
+    Component: Save button
+    ---
+    Save contact button
+*/
+.c-contact-container{
+  width: 100%;
+  position: absolute;
+  top: calc(20% + 192px);
+}
+
+.c-contact-btn{
+  background-color: var(--global-html-color);
+  width: 90%;
+  max-width: 344px;
+}
+
 
 
 /*------------------------------------*\
