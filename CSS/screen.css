@@ -556,16 +556,41 @@ border-radius: var(--global-profile-pic-borderRadius);
     Save contact button
 */
 .c-contact-container{
+  margin-top: 24px;
   width: 100%;
   position: absolute;
   top: calc(20% + 192px);
+  display: flex;
+  justify-content: center;
 }
 
 .c-contact-btn{
   background-color: var(--global-html-color);
+  border-radius: var(--global-borderRadius-small);
+  border: 0px;
   width: 90%;
   max-width: 344px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.c-contact-btn p{
+  color: var(--global-html-backgroundColor);
+  font-size: 12px;
+}
+
+.c-contact-btn a{
+  padding-right: 8px;
+  color: var(--global-html-backgroundColor);
+}
+
+.c-contact-btn:active{
+  background-color: var(--global-color-media);
+  color: var(--global-html-backgroundColor);
+}
+
 
 
 
