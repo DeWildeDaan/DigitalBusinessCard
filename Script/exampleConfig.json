@@ -6,8 +6,8 @@
         "Company":"GitHub"
     },
     "Contact":{
-        "FirstName":"John",
-        "Name":"Doe",
+        "FirstName":"John Doe",
+        "Name":"Doe;John;;;",
         "PhoneNumber":"+32123456789",
         "Website":"https://www.johndoe.be"
     },
