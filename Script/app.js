@@ -47,8 +47,8 @@ function callbackSaveContact() {
   var vcard =
     "BEGIN:VCARD\nVERSION:4.0\nFN:" +
     configData.Contact.FirstName +
-    "\nNAME:" +
-    configData.Socials.Name +
+    "\nN:" +
+    configData.Contact.Name +
     "\nTEL;TYPE=work,voice:" +
     configData.Contact.PhoneNumber +
     "\nEMAIL:" +
@@ -64,10 +64,8 @@ function callbackSaveContact() {
   var url = URL.createObjectURL(blob);
 
   const newLink = document.createElement("a");
-  newLink.download =
-    configData.Contact.FirstName + " " + configData.Contact.Name + ".vcf";
-  newLink.textContent =
-    configData.Contact.FirstName + " " + configData.Contact.Name;
+  newLink.download = configData.Contact.FirstName + ".vcf";
+  newLink.textContent = configData.Contact.FirstName;
   newLink.href = url;
 
   newLink.click();
@@ -76,7 +74,7 @@ function callbackSaveContact() {
 
 //#region ***  Data Access - get___                     ***********
 function getData() {
-  fetch("./Script/exampleConfig.json").then((response) => {
+  fetch("./Script/config.json").then((response) => {
     return response.json().then(function (responseData) {
       configData = responseData;
       showPersonalInfo(responseData);
